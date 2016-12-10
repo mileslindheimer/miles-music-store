@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/store
+    username: store_user
+    password: changeit
+    driverClassName: org.postgresql.Driver
