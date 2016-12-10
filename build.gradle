@@ -41,3 +41,7 @@ stage.mustRunAfter(clean)
 clean << {
     project.file('app.jar').delete()
 }
+
+bootRun {
+    addResources = true
+}

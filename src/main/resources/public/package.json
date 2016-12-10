@@ -1,0 +1,38 @@
+{
+  "name": "miles-music-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"watchify js/main.js -o js/bundle.js -d -v\" \"lite-server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mileslindheimer <mileslindheimer@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^13.0.1",
+    "flux": "^3.1.0",
+    "jquery": "^3.1.1",
+    "keymirror": "^0.1.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.8.1",
+    "reactify": "^1.1.1",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "concurrently": "^2.1.0",
+    "lite-server": "^2.2.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  }
+}

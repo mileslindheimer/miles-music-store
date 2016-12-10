@@ -1,6 +1,7 @@
 package store.product.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import store.product.entity.Product;
@@ -24,5 +25,10 @@ public class ProductController {
     @RequestMapping("/api/products")
     public List<Product> findAll() {
         return productRepo.findAll();
+    }
+
+    @RequestMapping("/api/products/{id}")
+    public Product findById(@PathVariable(value="id") long id) {
+        return productRepo.findOne(id);
     }
 }
