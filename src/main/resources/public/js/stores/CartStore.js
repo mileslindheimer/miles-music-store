@@ -8,6 +8,7 @@ var CHANGE_EVENT = 'change';
 var _items = {};
 var _itemCounts = {};
 var total = 0;
+var totalItemCount = 0;
 
 function add(id, item) {
 	if (_items[id] == null) {
@@ -17,16 +18,19 @@ function add(id, item) {
 		_itemCounts[id] = _itemCounts[id] + 1;
 	}
 	total += item.price;
+	totalItemCount++;
 }
 
 function remove(id) {
   total -= _items[id].price * _itemCounts[id];
+  totalItemCount -= _itemCounts[id];
   delete _items[id];
   delete _itemCounts[id];
 }
 
 function decrement(id) {
 	total -= _items[id].price
+	totalItemCount--;
 	_itemCounts[id]--;
 	if (_itemCounts[id] == 0) {
 		delete _items[id];
@@ -38,6 +42,7 @@ function clear() {
   _items = {};
   _itemCounts = {};
   total = 0;
+  totalItemCount = 0;
 }
 
 function checkout() {
@@ -58,10 +63,6 @@ var CartStore = assign({}, EventEmitter.prototype, {
   },
 
   getTotalItemCount: function() {
-  	var totalItemCount = 0;
-  	for (var i = 0; i < _itemCounts.length; i++) {
-  		totalItemCount += _itemCounts[i]
-  	}
   	return totalItemCount;
   },
 

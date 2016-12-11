@@ -8,7 +8,7 @@ var emptyProduct = {
 	name: '',
 	img: '',
 	description: '',
-	price: 0.00
+	price: null
 };
 
 function getProductDetailPageState() {

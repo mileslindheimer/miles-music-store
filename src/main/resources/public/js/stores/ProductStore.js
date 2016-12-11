@@ -7,7 +7,7 @@ var $ = require('jquery');
 var CHANGE_EVENT = 'change';
 
 var _products = [];
-var _product = {};
+var _product = null;
 
 function fetchProducts() {
   $.get( 'api/products', function(products) {
