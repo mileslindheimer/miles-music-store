@@ -57,6 +57,14 @@ var CartStore = assign({}, EventEmitter.prototype, {
   	return total;
   },
 
+  getTotalItemCount: function() {
+  	var totalItemCount = 0;
+  	for (var i = 0; i < _itemCounts.length; i++) {
+  		totalItemCount += _itemCounts[i]
+  	}
+  	return totalItemCount;
+  },
+
   emitChange: function() {
     this.emit(CHANGE_EVENT);
   },

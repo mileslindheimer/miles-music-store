@@ -13,9 +13,6 @@ var HomePage = React.createClass({
   render: function() {
     return (
     	<div>
-    		<div className='jumbotron'>
-	    		<Cart />
-	    	</div>
 	      <div className='jumbotron'>
 	      	<ProductsPage />
 	      </div>
