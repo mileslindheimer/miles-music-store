@@ -30,6 +30,7 @@ function filterProducts(filterText) {
     _filteredProducts = _products;
   } else {
     _filteredProducts = [];
+    filterText = filterText.toLowerCase();
     for (var i = 0; i < _products.length; i++) {
       var name = _products[i].name.toLowerCase();
       if (name.indexOf(filterText) !== -1) {
