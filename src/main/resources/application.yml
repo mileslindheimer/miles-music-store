@@ -3,10 +3,10 @@ spring:
     database: POSTGRESQL
   datasource:
     platform: postgres
-    url: jdbc:postgresql://ec2-23-23-111-171.compute-1.amazonaws.com:5432/d4j69o1cmoakei?user=xhyybsnmdgcwzo&password=d7a16dba410a52a54b975826bed881befb1ba1a6d7c0fc8951bb1b1f2b310bd6&sslmode=require
-    username: xhyybsnmdgcwzo
-    password: d7a16dba410a52a54b975826bed881befb1ba1a6d7c0fc8951bb1b1f2b310bd6
-#    url: jdbc:postgresql://localhost:5432/store
-#    username: store_user
-#    password: changeit
+#    url: jdbc:postgresql://ec2-23-23-111-171.compute-1.amazonaws.com:5432/d4j69o1cmoakei?user=xhyybsnmdgcwzo&password=d7a16dba410a52a54b975826bed881befb1ba1a6d7c0fc8951bb1b1f2b310bd6&sslmode=require
+#    username: xhyybsnmdgcwzo
+#    password: d7a16dba410a52a54b975826bed881befb1ba1a6d7c0fc8951bb1b1f2b310bd6
+    url: jdbc:postgresql://localhost:5432/store
+    username: store_user
+    password: changeit
     driverClassName: org.postgresql.Driver
