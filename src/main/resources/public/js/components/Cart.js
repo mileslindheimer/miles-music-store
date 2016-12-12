@@ -34,6 +34,7 @@ var Cart = React.createClass({
 
   render: function() {
   	var isEmpty = Object.keys(this.state.items).length == 0;
+  	var total = this.state.total.toFixed(2);
     return (
     	<div className='jumbotron'>
 	    	<div className='row'>
@@ -43,7 +44,7 @@ var Cart = React.createClass({
 	    		<div className='col-md-12'>		
 		      	<div className='col-md-4 col-md-offset-7'>
 		      		<div className='row'>
-		      			Total: ${this.state.total}
+		      			Total: ${total}
 		      		</div>
 
 		      		<div className='row btn-group'>

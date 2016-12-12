@@ -9,13 +9,14 @@ var Item = React.createClass({
 		});
 	},
   render: function() {
+    var price = this.props.item.price.toFixed(2);
     return (
     	<li className='item row'>
       	<div className='col-md-2'>
       		{this.props.item.name}
       	</div>
       	<div className='col-md-2'>
-      		Price: ${this.props.item.price /** this.props.count*/}
+      		Price: ${price}
       	</div>
       	<div className='col-md-2'>
       		Count: {this.props.count}

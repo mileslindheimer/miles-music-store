@@ -17,12 +17,13 @@ var ProductDetail = React.createClass({
     CartActions.addToCart(product.id, product);
   },
   render: function() {
+    var price = this.props.product.price === null ? null : this.props.product.price.toFixed(2);
     return (
       <div className='jumbotron'>
         <div className='row'>
           <a href='#/' className='btn-lg btn-default back' role='button'>
-              Back
-            </a>
+            Back
+          </a>
           <h1>
             {this.props.product.name}
           </h1>
@@ -30,7 +31,7 @@ var ProductDetail = React.createClass({
     		<div className='row'>
       		<img src={this.props.product.img} width='300'/>
       	</div>
-        <p>${this.props.product.price}</p>
+        <p>${price}</p>
         <p>{this.props.product.description}</p>
         <input
           type='button'

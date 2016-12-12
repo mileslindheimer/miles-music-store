@@ -8,6 +8,7 @@ var Product = React.createClass({
 		});
 	},
   render: function() {
+    var price = this.props.product.price.toFixed(2);
     return (
       <div className='col-sm-6 col-md-4 panel panel-default panel-body project-thumbnail'>
         <Link to={'products/'+this.props.product.id}>
@@ -15,7 +16,7 @@ var Product = React.createClass({
           <img src={this.props.product.img}/>
       	</div>
         <h3>{this.props.product.name}</h3>
-        <p>${this.props.product.price}</p>
+        <p>${price}</p>
         </Link>
       </div>
     );
