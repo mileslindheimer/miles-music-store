@@ -17,19 +17,18 @@ var Navbar = React.createClass({
   render: function() {
     return (
       <div>
-        <nav className="navbar navbar-inverse navbar-fixed-top">
+        <nav className="navbar navbar-inverse">
           <div className="container-fluid">
-          <div className="row">
-            <div className="col-xs-12 col-sm-4 col-md-4">
+
+
             <div className="navbar-header">
               <a className="navbar-brand" href="#">
                 <span className="glyphicon glyphicon-music" aria-hidden="true"></span> Miles Music Store
               </a>
             </div>
-            </div>
-            
-              <div className="col-xs-6 col-sm-5 col-md-5">
-                <form className="navbar-form navbar-left" role="search">
+
+              <form className="navbar-form navbar-left" role="search">
+                <div className="form-group">
                   <div className="input-group">
                     <input type="text" className="form-control" placeholder="Search" />
                     <div className="input-group-btn">
@@ -38,14 +37,16 @@ var Navbar = React.createClass({
                       </button>
                     </div>
                   </div>
-                </form>
-              </div>
-              <div className="col-xs-5 col-sm-1 col-md-1 col-xs-offset-1">
-                <form className="navbar-form navbar-right">
+                </div>
+              </form>
+
+
+              <form className="navbar-form navbar-right">
+                <div className="form-group">
                   <MiniCart />
-                </form>
-              </div>
-            </div>
+                </div>
+              </form>
+
           </div>
         </nav>
         {this.props.children}  

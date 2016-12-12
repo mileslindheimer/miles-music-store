@@ -8,6 +8,9 @@ var ProductDetail = React.createClass({
 		$(".btn").mouseup(function(){
     	$(this).blur();
 		});
+    $(".btn-lg").mouseup(function(){
+      $(this).blur();
+    });
 	},
   addToCart: function(product) {
     var item = product;
@@ -16,12 +19,14 @@ var ProductDetail = React.createClass({
   render: function() {
     return (
       <div className='jumbotron'>
-        <h1>
-          <a href='#projects' className='btn btn-default back btn-arrow-left' role='button'>
-            Back
-          </a>
-          {this.props.product.name}
-        </h1>
+        <div className='row'>
+          <a href='#projects' className='btn-lg btn-default back' role='button'>
+              Back
+            </a>
+          <h1>
+            {this.props.product.name}
+          </h1>
+        </div>
     		<div className='row'>
       		<img src={this.props.product.img} width='300'/>
       	</div>
@@ -29,9 +34,9 @@ var ProductDetail = React.createClass({
         <p>{this.props.product.description}</p>
         <input
           type='button'
-          className='btn btn-primary'
+          className='btn-lg btn-primary'
           onClick={this.addToCart.bind(this,this.props.product)} 
-          value='Add'
+          value='Add To Cart'
         />
       </div>
     );
