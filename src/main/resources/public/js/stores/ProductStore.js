@@ -7,11 +7,13 @@ var $ = require('jquery');
 var CHANGE_EVENT = 'change';
 
 var _products = [];
+var _filteredProducts = [];
 var _product = null;
 
 function fetchProducts() {
   $.get( 'api/products', function(products) {
     _products = products;
+    _filteredProducts = products;
     ProductStore.emitChange();
   });
 }
@@ -23,9 +25,23 @@ function fetchProductById(id) {
   });
 }
 
+function filterProducts(filterText) {
+  if (filterText == '') {
+    _filteredProducts = _products;
+  } else {
+    _filteredProducts = [];
+    for (var i = 0; i < _products.length; i++) {
+      var name = _products[i].name.toLowerCase();
+      if (name.indexOf(filterText) !== -1) {
+        _filteredProducts.push(_products[i]);
+      }
+    }
+  }
+}
+
 var ProductStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
-    return _products;
+    return _filteredProducts;
   },
 
   getProductDetail: function() {
@@ -54,6 +70,11 @@ AppDispatcher.register(function(action) {
 
     case ProductConstants.PRODUCTS_GET_BY_ID:
       fetchProductById(action.id);
+      break;
+
+    case ProductConstants.PRODUCTS_FILTER:
+      filterProducts(action.filterText);
+      ProductStore.emitChange();
       break;
 
     default:

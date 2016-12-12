@@ -14,6 +14,13 @@ var ProductActions = {
       actionType: ProductConstants.PRODUCTS_GET_BY_ID,
       id: id
     });
+  },
+
+  filter: function(filterText) {
+    AppDispatcher.dispatch({
+      actionType: ProductConstants.PRODUCTS_FILTER,
+      filterText: filterText
+    });
   }
 
 };

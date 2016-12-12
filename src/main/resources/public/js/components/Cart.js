@@ -37,10 +37,10 @@ var Cart = React.createClass({
     return (
     	<div className='jumbotron'>
 	    	<div className='row'>
+	    		<a href='#/' className='btn-lg btn-default back' role='button'>
+	          Back
+	        </a>
 	    		<div className='col-md-12'>		
-	    			<a href='#/' className='btn-lg btn-default back' role='button'>
-	            Back
-	          </a>
 		      	<div className='col-md-4 col-md-offset-7'>
 		      		<div className='row'>
 		      			Total: ${this.state.total}
@@ -60,7 +60,7 @@ var Cart = React.createClass({
 				      		disabled={isEmpty}
 				      		onClick={CartActions.checkout}
 				      	>
-					      	<span className='glyphicon glyphicon-shopping-cart'> Checkout
+					      	<span className='glyphicon glyphicon-credit-card'> Checkout
 					      	</span>
 				      	</button>
 		      		</div>

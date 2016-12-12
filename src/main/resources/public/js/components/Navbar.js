@@ -1,6 +1,7 @@
 var React = require('react');
 
 var MiniCart = require('./MiniCart');
+var SearchBar = require('./SearchBar');
 
 var Navbar = React.createClass({
   componentDidMount: function() {
@@ -29,14 +30,7 @@ var Navbar = React.createClass({
 
               <form className="navbar-form navbar-left" role="search">
                 <div className="form-group">
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Search" />
-                    <div className="input-group-btn">
-                      <button type="submit" className="btn btn-default">
-                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-                      </button>
-                    </div>
-                  </div>
+                  <SearchBar />
                 </div>
               </form>
 
