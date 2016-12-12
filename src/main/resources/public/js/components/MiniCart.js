@@ -32,12 +32,9 @@ var Cart = React.createClass({
 
   render: function() {
     return (
-    	<button 
-    		className='btn btn-default'
-    		onClick={CartActions.checkout}
-    	>
+    	<a href='#cart' className='btn btn-default' role='button'>
     		Cart <span className='glyphicon glyphicon-shopping-cart'></span> {this.state.totalItemCount}
-    	</button>
+    	</a>
     );
   },
   checkout: function() {

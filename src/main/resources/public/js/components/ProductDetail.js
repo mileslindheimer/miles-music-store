@@ -20,7 +20,7 @@ var ProductDetail = React.createClass({
     return (
       <div className='jumbotron'>
         <div className='row'>
-          <a href='#projects' className='btn-lg btn-default back' role='button'>
+          <a href='#/' className='btn-lg btn-default back' role='button'>
               Back
             </a>
           <h1>
