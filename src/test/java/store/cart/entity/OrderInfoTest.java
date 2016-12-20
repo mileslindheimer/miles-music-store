@@ -2,6 +2,9 @@ package store.cart.entity;
 
 import org.junit.Test;
 import store.cart.model.CartItem;
+import store.product.entity.Product;
+
+import java.math.BigDecimal;
 
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
@@ -26,19 +29,23 @@ public class OrderInfoTest {
     @Test
     public void addingSingleCartItemAddsSingleOrderItem() throws Exception {
         OrderInfo orderInfo = new OrderInfo();
-        CartItem cartItem = new CartItem(null);
+        Product product = new Product("", "", "", BigDecimal.ONE);
+        CartItem cartItem = new CartItem(product);
 
         orderInfo.addCartItem(cartItem);
         assertThat(orderInfo.getOrderItems().size(), is(1));
+        assertThat(orderInfo.getTotal(), is(BigDecimal.ONE));
     }
 
     @Test
     public void addingCartItemWithCountNAddsNOrderItems() throws Exception {
         OrderInfo orderInfo = new OrderInfo();
+        Product product = new Product("", "", "", BigDecimal.ONE);
         final int count = 3;
-        CartItem cartItem = new CartItem(null, count);
+        CartItem cartItem = new CartItem(product, count);
 
         orderInfo.addCartItem(cartItem);
         assertThat(orderInfo.getOrderItems().size(), is(count));
+        assertThat(orderInfo.getTotal(), is(BigDecimal.valueOf(3)));
     }
 }

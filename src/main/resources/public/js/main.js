@@ -7,7 +7,7 @@ var hashHistory = require('react-router').hashHistory;
 
 var Navbar = require('./components/Navbar');
 var HomePage = require('./components/HomePage');
-var Cart = require('./components/Cart');
+var CartPage = require('./components/CartPage');
 var ProductDetailPage = require('./components/ProductDetailPage');
 
 ReactDOM.render((
@@ -15,7 +15,7 @@ ReactDOM.render((
     <Route path="/" component={Navbar}>
       <IndexRoute component={HomePage}/>
       <Route path="products/:id" component={ProductDetailPage}/>
-      <Route path="cart" component={Cart} />
+      <Route path="cart" component={CartPage} />
     </Route>
   </Router>
   ), document.getElementById('content')

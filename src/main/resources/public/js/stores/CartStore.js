@@ -2,6 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var CartConstants = require('../constants/CartConstants');
 var assign = require('object-assign');
+var $ = require('jquery');
 
 var CHANGE_EVENT = 'change';
 
@@ -9,6 +10,7 @@ var _items = {};
 var _itemCounts = {};
 var total = 0;
 var totalItemCount = 0;
+var _orderInfo = null;
 
 function add(id, item) {
 	if (_items[id] == null) {
@@ -46,7 +48,21 @@ function clear() {
 }
 
 function checkout() {
-  console.log('Checking out');
+  var cart = {cartItems: []}
+  for (var id in _items) {
+    cart.cartItems.push({product: _items[id], count: _itemCounts[id]});
+  }
+  $.ajax({
+    type: 'POST',
+    url: '/api/cart',
+    data: JSON.stringify(cart), 
+    contentType: 'application/json',
+    success: function(orderInfo) {
+      clear();
+      _orderInfo = orderInfo;
+      CartStore.emitChange();
+    }
+  });
 }
 
 var CartStore = assign({}, EventEmitter.prototype, {
@@ -64,6 +80,10 @@ var CartStore = assign({}, EventEmitter.prototype, {
 
   getTotalItemCount: function() {
   	return totalItemCount;
+  },
+
+  getOrderInfo: function() {
+    return _orderInfo;
   },
 
   emitChange: function() {
