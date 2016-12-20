@@ -1,5 +1,6 @@
 package store.product.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +13,15 @@ import java.math.BigDecimal;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String name;
+    @Column
     private String img;
+    @Column
     private String description;
+    @Column
     private BigDecimal price;
 
     protected Product() {}

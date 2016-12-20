@@ -13,6 +13,7 @@ import java.util.List;
  * @author mileslindheimer
  */
 @RestController
+@RequestMapping("/api/products")
 public class ProductController {
 
     private final ProductRepo productRepo;
@@ -22,12 +23,12 @@ public class ProductController {
         this.productRepo = productRepo;
     }
 
-    @RequestMapping("/api/products")
+    @RequestMapping
     public List<Product> findAll() {
         return productRepo.findAll();
     }
 
-    @RequestMapping("/api/products/{id}")
+    @RequestMapping("/{id}")
     public Product findById(@PathVariable(value="id") long id) {
         return productRepo.findOne(id);
     }
