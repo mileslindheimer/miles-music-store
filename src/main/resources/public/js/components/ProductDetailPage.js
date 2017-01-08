@@ -4,17 +4,10 @@ var ProductDetail = require('./ProductDetail');
 var ProductStore = require('../stores/ProductStore');
 var ProductActions = require('../actions/ProductActions');
 
-var emptyProduct = {
-	name: '',
-	img: '',
-	description: '',
-	price: null
-};
-
 function getProductDetailPageState() {
 	var product = ProductStore.getProductDetail();
   return {
-    product: product != null ? product : emptyProduct
+    product: product
   };
 }
 
@@ -37,11 +30,14 @@ var ProductDetailPage = React.createClass({
   },
 
   render: function() {
+    var loader = <div className='loader'></div>
     return (
       <div>
-        <ProductDetail 
+        {this.state.product == null ?
+          loader
+          : <ProductDetail 
         	product={this.state.product} 
-        />
+        />}
       </div>
     )
   }

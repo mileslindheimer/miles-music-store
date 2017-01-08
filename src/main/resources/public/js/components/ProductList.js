@@ -7,6 +7,7 @@ var ProductList = React.createClass({
 		var products = [];
 		var that = this;
     var rowNum = 0;
+    var loader = <div className='loader'></div>
   	this.props.products.forEach(function(product) {
     	products.push(
     		<Product 
@@ -17,7 +18,9 @@ var ProductList = React.createClass({
   	});
     return (
     	<div className='container-fluid text-center projectlist'>
-      	{products}
+      	{products.length == 0 ?
+          loader
+          : products}
     	</div>
     );
   }
